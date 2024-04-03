@@ -1,16 +1,14 @@
 const Navbar: React.FC = () => {
 
-    let active: boolean = false;
     const dropdown: HTMLElement | null = document.getElementById('m-navbar');
     
     function toggleNavbar(): void {
-        if(active === true) {
-            dropdown?.classList.remove('hidden');
-            active = false;
+
+        if(dropdown?.classList.contains('hidden')) {
+            dropdown.classList.remove('hidden');
         } else {
             dropdown?.classList.add('hidden');
-            active = true;
-        }
+        };
     }
     
     return (
@@ -35,10 +33,10 @@ const Navbar: React.FC = () => {
                     ...
                 </button>
             </div>
-            <div className="absolute sm:hidden top-16 right-6 hidden bg-white rounded-md shadow-lg w-44" id="m-navbar">
-                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Item 1</a>
-                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Item 2</a>
-                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Item 3</a>
+            <div className="absolute sm:hidden flex flex-col top-16 right-6 bg-white rounded-md shadow-lg w-44 hidden" id="m-navbar">
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home</a>
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Nebula</a>
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Search</a>
             </div>
             </div>
  
