@@ -1,24 +1,12 @@
+import { useState } from "react";
+
 const Navbar: React.FC = () => {
 
-    const dropdown: HTMLElement | null = document.getElementById('m-navbar');
-    let active: boolean;
+    const [isOpen, setIsOpen] = useState(false);
 
-    function toggleNavbar(): void {
-
-        if(dropdown?.classList.contains('hidden')) {
-            active = false;
-        } else {
-            active = true;
-        }
-
-        if(active === false) {
-            dropdown?.classList.remove('hidden');
-            dropdown?.classList.add('flex');
-        } else {
-            dropdown?.classList.add('hidden');
-            dropdown?.classList.remove('flex');
-        };
-    }
+    const toggleNavbar = () => {
+        setIsOpen(!isOpen);
+    };
     
     return (
         <>
@@ -42,7 +30,7 @@ const Navbar: React.FC = () => {
                     ...
                 </button>
             </div>
-            <div className="absolute sm:hidden flex-col top-16 right-6 bg-white rounded-md shadow-lg w-44 hidden" id="m-navbar">
+            <div className={` ${isOpen ? "flex" : "hidden"} absolute sm:hidden flex-col top-16 right-6 bg-white rounded-md shadow-lg w-44`} id="m-navbar">
                     <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home</a>
                     <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Nebula</a>
                     <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Search</a>
