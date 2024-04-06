@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
                 <h1>NASA Image Gallery</h1>
             </div>
             <div className="m-6 text-lg xl:text-xl bold hidden lg:flex cursor-pointer tracking-tighter sm:tracking-widest hover:scale-125 duration-500 px-24">
-                <h1 className="">Picture Of The Day</h1> 
+                <h1 className="">Picture Of The Day</h1>
             </div>
             <div className="sm:flex m-6 hidden text-lg xl:text-xl cursor-pointer gap-6 lg:gap-8 tracking-tighter sm:tracking-wide"> 
                 <h1 className="flex hover:scale-125 duration-500">Home</h1> 
