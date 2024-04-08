@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 interface PodData {
     title: string;
     url: string;
-    description: string;
+    explanation: string;
 };
 
-const URL = 'api.nasa.gov/planetary/apod?api_key=qfOWfkJtpXgrET2eHXbyagjS9trMUzL7ARYJvYfj';
+const API_KEY = 'qfOWfkJtpXgrET2eHXbyagjS9trMUzL7ARYJvYfj';
+const URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 
 
 const Pod: React.FC = () => {
@@ -28,14 +29,14 @@ const Pod: React.FC = () => {
     }, []);
 
     if(!podData) {
-        return <div>:Loading...</div>
+        return <div>Loading...</div>
     };
 
     return (
-        <div>
+        <div className="h-fit">
             <h1>{podData.title}</h1>
-            <img src={podData.url} alt={podData.title} />
-            <p>{podData.description}</p>
+            <img src={podData.url} alt={podData.title} height="100px" />
+            <p>{podData.explanation}</p>
         </div>
     );
 };

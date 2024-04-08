@@ -1,13 +1,23 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Pod from "./components/Pod";
 
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div>
+        <Navbar />
+        <main>
+          <Switch>
+            <Route path="/" exact component={Hero} />
+            <Route path="/pod" component={Pod} />
+          </Switch>
+        </main>
+      </div>
+    </Router>
+  );
+};
 
-
-function App() {
-
-return (
-    <>
-      <h1 className="text-3xl">Hello World</h1>
-    </>
-  )
-}
-
-export default App
+export default App;
