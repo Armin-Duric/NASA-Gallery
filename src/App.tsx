@@ -10,10 +10,7 @@ const App: React.FC = () => {
       <div>
         <Navbar />
         <main>
-          <Switch>
-            <Route path="/" exact component={Hero} />
-            <Route path="/pod" component={Pod} />
-          </Switch>
+          <Hero />
         </main>
       </div>
     </Router>

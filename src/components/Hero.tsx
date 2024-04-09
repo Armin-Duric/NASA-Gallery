@@ -2,40 +2,46 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-interface HeroData {
-  data: object;
-  links: object;
-}
-const URL = `https://images-api.nasa.gov/search?keywords=orion nebula?api_key=${API_KEY}`;
-const API_KEY = "qfOWfkJtpXgrET2eHXbyagjS9trMUzL7ARYJvYfj";
+// const API_KEY = "qfOWfkJtpXgrET2eHXbyagjS9trMUzL7ARYJvYfj";
+const URL = `https://images-api.nasa.gov/search?keywords=nebula`;
 
 const Hero: React.FC = () => {
-  const [heroData, setHeroData] = useState<HeroData | null>(null);
+  const [heroData, setHeroData] = useState<string[]>([]);
+  const [titles, setTitles] = useState<string[]>([]);
 
   useEffect(() => {
-    const fetchHeroData = async () => {
-      try {
-        const response = await axios.get(URL);
-        setHeroData(response.data);
-      } catch (err) {
-        console.error("Error fetching Picture Of The Day:", err);
-      }
+    const fetchData = async () => {
+      const response = await axios.get(URL);
+      const data = response.data;
+      const urls = data.collection.items.map((item: any) => item.links[0].href);
+      const titles = data.collection.items.map(
+        (item: any) => item.data[0].title
+      );
+      setHeroData(urls);
+      setTitles(titles);
     };
-
-    fetchHeroData();
+    fetchData();
   }, []);
 
-    if(!heroDataData) {
-        return <div>Loading...</div>
-    };
+  if (!heroData) {
+    <div>Loading...</div>;
+  }
 
-    return (
-        <div className="h-fit flex border-2">
-            <h1>{heroData?.data[].title}</h1>
-            <img src={heroData?.links[0].href} alt={podData.title} height="100px" />
-            {/* <p>{podData.explanation}</p> */}
+  return (
+    <div className="grid w-full md:grid-cols-3 2xl:grid-cols-4 grid-cols-2 grid-flow-row gap-4 overflow-hidden">
+      {heroData.map((image, index) => (
+        <div>
+          <h1>{titles[index]}</h1>
+          <img
+            key={index}
+            src={image}
+            alt="Nasa Space image"
+            className="flex flex-row w-96 h-96 border-2"
+          />
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default Hero;
