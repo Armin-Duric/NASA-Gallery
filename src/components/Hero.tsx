@@ -28,15 +28,15 @@ const Hero: React.FC = () => {
   }
 
   return (
-    <div className="grid w-full md:grid-cols-3 2xl:grid-cols-4 grid-cols-2 grid-flow-row gap-4 overflow-hidden">
+    <div className="grid w-full md:grid-cols-3 2xl:grid-cols-4 grid-cols-2 grid-flow-row gap-6 m-4 overflow-hidden">
       {heroData.map((image, index) => (
-        <div>
-          <h1>{titles[index]}</h1>
+        <div className="flex flex-col border-4 w-auto h-96 box-border mb-6 overflow-hidden click:row-span-2 click:col-span-2 hover:w-full hover:h-min">
+          <h1 className="p-2 text-center">{titles[index]}</h1>
           <img
             key={index}
             src={image}
             alt="Nasa Space image"
-            className="flex flex-row w-96 h-96 border-2"
+            className="w-96 h-full hover:w-full overflow-hidden"
           />
         </div>
       ))}
