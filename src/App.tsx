@@ -11,7 +11,6 @@ const App: React.FC = () => {
         <Navbar />
         <main>
           <Hero />
-          <Pod />
         </main>
       </div>
     </Router>
