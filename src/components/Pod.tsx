@@ -5,6 +5,7 @@ interface PodData {
   title: string;
   url: string;
   explanation: string;
+  media_type: string;
 }
 
 const API_KEY = "qfOWfkJtpXgrET2eHXbyagjS9trMUzL7ARYJvYfj";
@@ -27,7 +28,28 @@ const Pod: React.FC = () => {
   }, []);
 
   if (!podData) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex m-6 p-6 justify-center items-center text-3xl">
+        Loading...
+      </div>
+    );
+  }
+
+  if (podData.media_type === "video") {
+    return (
+      <div className="w-2/2 h-fit flex flex-col justify-center items-center m-4 overflow-hidden">
+        <h1 className="m-4 md:text-3xl text-2xl text-center font-semibold indie-flower-regular">
+          {podData.title}
+        </h1>
+        <embed
+          src={podData.url}
+          className="h-fit w-4/6 justify-center m-6 rounded-lg drop-shadow-[0_0px_80px_rgba(61,112,123,0.7)] video-height"
+        />
+        <p className="w-5/6 xl:w-4/6 md:text-xl text-sm mb-6">
+          {podData.explanation}
+        </p>
+      </div>
+    );
   }
 
   return (
