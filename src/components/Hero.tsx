@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
 
   return (
     <>
-      <div className="grid w-fit md:grid-cols-3 2xl:grid-cols-4 grid-cols-2 grid-flow-row gap-6 m-4 overflow-hidden">
+      <div className="grid w-fit md:grid-cols-3 2xl:grid-cols-4 grid-cols-1 grid-flow-row gap-6 m-4 overflow-hidden">
         {images.map((image: any, index) => (
           <div className="flex flex-col mb-6 overflow-hidden items-center w-full h-96 hover:scale-125 transition-transform duration-500">
             <h1 className="p-2 text-center bottom-border-2 overflow-hidden border-b-2 hover:w-full">
