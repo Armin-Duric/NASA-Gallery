@@ -8,7 +8,7 @@ let page = Math.floor(Math.random() * 4);
 const URL = `https://images-api.nasa.gov/search?q=${searchWord}&media_type=image&page=${page}`;
 
 const Hero: React.FC = () => {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState();
 
   useEffect(() => {
     try {
@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
     }
   }, []);
 
-  if (!images.data) {
+  if (!images) {
     return (
       <h1 className="lg:text-4xl md:text-2xl text-sm flex justify-center items-center m-4 p-4 md:m-10 md:p-20 indie-flower-regular">
         Loading...
