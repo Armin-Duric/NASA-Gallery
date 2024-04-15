@@ -54,15 +54,15 @@ const Pod: React.FC = () => {
 
   return (
     <div className="w-2/2 h-fit flex flex-col justify-center items-center m-4 ">
-      <h1 className="m-4 text-3xl font-semibold indie-flower-regular">
+      <h1 className="m-4 text-xl md:text-3xl font-semibold">
         {podData.title}
       </h1>
       <img
         src={podData.url}
         alt={podData.title}
-        className="h-fit xl:w-4/6 w-3/4 justify-center m-6 rounded-lg drop-shadow-[0_0px_80px_rgba(61,112,123,0.7)]"
+        className="h-fit xl:w-4/6 w-full justify-center m-6 rounded-lg drop-shadow-[0_0px_80px_rgba(61,112,123,0.7)]"
       />
-      <p className="w-5/6 xl:w-4/6 text-xl mb-6">{podData.explanation}</p>
+      <p className="w-5/6 xl:w-4/6 text-sm md:text-xl mb-6">{podData.explanation}</p>
     </div>
   );
 };
