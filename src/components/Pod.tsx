@@ -38,7 +38,7 @@ const Pod: React.FC = () => {
   if (podData.media_type === "video") {
     return (
       <div className="w-2/2 h-fit flex flex-col justify-center items-center m-4 overflow-hidden">
-        <h1 className="m-4 md:text-3xl text-2xl text-center font-semibold indie-flower-regular">
+        <h1 className="m-4 md:text-3xl text-lg text-center font-semibold text-center">
           {podData.title}
         </h1>
         <embed
@@ -54,7 +54,7 @@ const Pod: React.FC = () => {
 
   return (
     <div className="w-2/2 h-fit flex flex-col justify-center items-center m-4 ">
-      <h1 className="m-4 text-xl md:text-3xl font-semibold">
+      <h1 className="m-4 text-lg md:text-3xl font-semibold text-center">
         {podData.title}
       </h1>
       <img
