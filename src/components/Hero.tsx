@@ -1,14 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Search from "./Search";
 
 // const API_KEY = "qfOWfkJtpXgrET2eHXbyagjS9trMUzL7ARYJvYfj";
 let searchWord = "nebula";
-let page = Math.floor(Math.random() * 4);
+let page = 1;
 const URL = `https://images-api.nasa.gov/search?q=${searchWord}&media_type=image&page=${page}`;
 
 const Hero: React.FC = () => {
-  const [images, setImages] = useState();
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     try {
@@ -27,7 +28,7 @@ const Hero: React.FC = () => {
     }
   }, []);
 
-  if (!images) {
+  if (!images.length) {
     return (
       <h1 className="lg:text-4xl md:text-2xl text-sm flex justify-center items-center m-4 p-4 md:m-10 md:p-20 indie-flower-regular">
         Loading...
@@ -52,8 +53,10 @@ const Hero: React.FC = () => {
           </div>
         ))}
       </div>
+      <Search />
     </>
   );
+  
 };
 
 export default Hero;
