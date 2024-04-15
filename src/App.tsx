@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MainLayout from "./layouts/MainLayout";
-import Pod from "./pages/PodPage";
+import PodPage from "./pages/PodPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
