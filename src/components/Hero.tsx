@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
   if (!images.length) {
     return (
       <h1 className="lg:text-4xl md:text-2xl text-sm flex justify-center items-center m-4 p-4 md:m-10 md:p-20 indie-flower-regular">
-        Sorry, nothing to display yet.
+        Loading...
       </h1>
     );
   }
