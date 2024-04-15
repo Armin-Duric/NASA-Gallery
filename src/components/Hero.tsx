@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Search from "./Search";
 
 // const API_KEY = "qfOWfkJtpXgrET2eHXbyagjS9trMUzL7ARYJvYfj";
 let searchWord = "nebula";
@@ -53,7 +52,6 @@ const Hero: React.FC = () => {
           </div>
         ))}
       </div>
-      <Search />
     </>
   );
   
