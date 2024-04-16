@@ -60,7 +60,7 @@ const Pod: React.FC = () => {
       <img
         src={podData.url}
         alt={podData.title}
-        className="h-fit xl:w-4/6 w-full m-4 md:w-5/6 justify-center m-6 rounded-lg drop-shadow-[0_0px_80px_rgba(61,112,123,0.7)]"
+        className="h-fit xl:w-4/6 w-5/6 m-4 md:w-4/6 justify-center m-6 rounded-lg drop-shadow-[0_0px_80px_rgba(61,112,123,0.7)]"
       />
       <p className="w-5/6 xl:w-4/6 text-md md:text-xl mb-6">{podData.explanation}</p>
     </div>
