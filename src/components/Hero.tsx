@@ -27,6 +27,45 @@ const Hero: React.FC = () => {
     }
   }, []);
 
+  import React, { useRef } from 'react';
+
+const FullScreenImage: React.FC = () => {
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  const openFullScreen = () => {
+    if (imgRef.current) {
+      if (imgRef.current.requestFullscreen) {
+        imgRef.current.requestFullscreen();
+      } else if ((imgRef.current as any).mozRequestFullScreen) { /* Firefox */
+        (imgRef.current as any).mozRequestFullScreen();
+      } else if ((imgRef.current as any).webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        (imgRef.current as any).webkitRequestFullscreen();
+      } else if ((imgRef.current as any).msRequestFullscreen) { /* IE/Edge */
+        (imgRef.current as any).msRequestFullscreen();
+      }
+    }
+  };
+
+  const closeFullScreen = () => {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if ((document as any).mozCancelFullScreen) { /* Firefox */
+      (document as any).mozCancelFullScreen();
+    } else if ((document as any).webkitExitFullscreen) { /* Chrome, Safari and Opera */
+      (document as any).webkitExitFullscreen();
+    } else if ((document as any).msExitFullscreen) { /* IE/Edge */
+      (document as any).msExitFullscreen();
+    }
+  };
+
+  const toggleFullScreen = () => {
+    if (!document.fullscreenElement) {
+      openFullScreen();
+    } else {
+      closeFullScreen();
+    }
+  };
+
   if (!images.length) {
     return (
       <h1 className="lg:text-4xl md:text-2xl text-sm flex justify-center items-center m-4 p-4 md:m-10 md:p-20 indie-flower-regular">
@@ -47,6 +86,7 @@ const Hero: React.FC = () => {
               key={index}
               src={image.links[0].href}
               alt="Nasa Space image"
+              onClick={toggleFullScreen}
               className="h-full object-contain w-full rounded overflow-hidden duration-500"
             />
           </div>
