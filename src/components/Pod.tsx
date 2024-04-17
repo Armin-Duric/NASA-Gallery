@@ -27,6 +27,19 @@ const Pod: React.FC = () => {
     fetchPodData();
   }, []);
 
+
+    const [isFullScreen, setIsFullScreen] = useState(false);
+  
+    const toggleFullScreen = () => {
+      const mediaContainer = document.getElementById('media-container')
+      if (!isFullScreen) {
+        mediaContainer.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+      setIsFullScreen(!isFullScreen);
+    };
+
   if (!podData) {
     return (
       <div className="flex m-6 p-6 justify-center items-center text-3xl">
@@ -60,7 +73,9 @@ const Pod: React.FC = () => {
       <img
         src={podData.url}
         alt={podData.title}
+        onClick={toggleFullScreen}
         className="h-fit xl:w-4/6 w-5/6 m-4 md:w-4/6 justify-center m-6 rounded-lg drop-shadow-[0_0px_80px_rgba(61,112,123,0.7)]"
+        id="media-container"
       />
       <p className="w-5/6 xl:w-4/6 text-md md:text-xl mb-6">{podData.explanation}</p>
     </div>

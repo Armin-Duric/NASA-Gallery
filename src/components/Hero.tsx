@@ -27,6 +27,24 @@ const Hero: React.FC = () => {
     }
   }, []);
 
+
+
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+  const toggleFullScreen = (index: number) => {
+    const mediaContainer = document.getElementById(index.toString());
+    if (!isFullScreen) {
+      mediaContainer?.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+    setIsFullScreen(!isFullScreen);
+    setSelectedImageIndex(index);
+  };
+
+
+
   if (!images.length) {
     return (
       <h1 className="lg:text-4xl md:text-2xl text-sm flex justify-center items-center m-4 p-4 md:m-10 md:p-20 indie-flower-regular">
@@ -48,6 +66,8 @@ const Hero: React.FC = () => {
               src={image.links[0].href}
               alt="Nasa Space image"
               className="h-full object-contain w-full rounded overflow-hidden duration-500"
+              id={`${index}`}
+              onClick={() => toggleFullScreen(index)}
             />
           </div>
         ))}
