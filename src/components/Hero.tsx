@@ -27,8 +27,6 @@ const Hero: React.FC = () => {
     }
   }, []);
 
-
-
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
@@ -42,8 +40,6 @@ const Hero: React.FC = () => {
     setIsFullScreen(!isFullScreen);
     setSelectedImageIndex(index);
   };
-
-
 
   if (!images.length) {
     return (
