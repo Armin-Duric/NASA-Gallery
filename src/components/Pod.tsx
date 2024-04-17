@@ -31,7 +31,7 @@ const Pod: React.FC = () => {
     const [isFullScreen, setIsFullScreen] = useState(false);
   
     const toggleFullScreen = () => {
-      const mediaContainer = document.getElementById('media-container')
+      const mediaContainer:any = document.getElementById('media-container')
       if (!isFullScreen) {
         mediaContainer.requestFullscreen();
       } else {

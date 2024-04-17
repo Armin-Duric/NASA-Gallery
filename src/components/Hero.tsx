@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
   }, []);
 
   const [isFullScreen, setIsFullScreen] = useState(false);
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [, setSelectedImageIndex] = useState<number | null>(null);
 
   const toggleFullScreen = (index: number) => {
     const mediaContainer = document.getElementById(index.toString());
