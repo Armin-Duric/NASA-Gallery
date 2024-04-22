@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
         </div>
 
         <div>
-          <div className="flex flex-col sm:hidden rounded mr-5 mt-5">
+          <div className="flex flex-col md:hidden rounded mr-5 mt-5">
             <button
               className="bg-slate-800 w-10 h-10 hover:bg-gray-500"
               onClick={toggleNavbar}
