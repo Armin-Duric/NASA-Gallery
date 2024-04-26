@@ -66,12 +66,12 @@ const Hero: React.FC = () => {
         <input
           type="text"
           value={searchWord}
-          className=" text-lg mx-4 w-4/6 px-2 bg-stone-950 border-b-2 rounded-md shadow h-10"
+          className=" text-lg mx-4 w-4/6 px-2 bg-stone-950 border-b-2 rounded-md shadow h-10 shadow-2xl shadow-blue-500 bg-blend-normal"
           onChange={handleSearchWord}
         />
         <button
           onClick={handleSearchSubmit}
-          className="text-md lg:text-2xl border-b-2 cursor-pointer hover:text-red "
+          className="text-md lg:text-2xl font-medium shadow-2xl border-b-2 cursor-pointer hover:text-red shadow-blue-500 bg-blend-normal duration-500 scale-y-50"
         >
           Search
         </button>
