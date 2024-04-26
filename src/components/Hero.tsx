@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
         />
         <button
           onClick={handleSearchSubmit}
-          className="text-md lg:text-2xl font-medium shadow-2xl border-b-2 cursor-pointer hover:shadow-blue-500 bg-blend-normal duration-500 hover:scale-125 transition hover:bg-red-600"
+          className="text-md lg:text-2xl font-medium shadow-2xl border-b-2 cursor-pointer hover:shadow-blue-500 bg-blend-normal duration-500 transition hover:text-red-600"
         >
           Search
         </button>
