@@ -31,6 +31,5 @@ This project is a gallery that displays images from the NASA API, along with the
 Please note: You'll need to provide your own NASA API key to fetch the the Picture of the Day.
 
 ## Future Improvements
-- Add pagination or infinite scroll to load more images.
-- Allow users to change the search term.
-- Implement a search bar in the navigation bar.
+- Limit images display per page and add pagination option.
+- Add option for the most searched images. 
