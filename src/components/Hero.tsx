@@ -1,34 +1,45 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-// const API_KEY = "qfOWfkJtpXgrET2eHXbyagjS9trMUzL7ARYJvYfj";
-let searchWord = "nebula";
-let page = 1;
-const URL = `https://images-api.nasa.gov/search?q=${searchWord}&media_type=image&page=${page}`;
-
 const Hero: React.FC = () => {
   const [images, setImages] = useState([]);
+  const [page, setPage] = useState(1);
+  const [searchWord, setSearchWord] = useState("nebula");
+
+  const URL = `https://images-api.nasa.gov/search?q=${searchWord}&media_type=image&page=${page}`;
 
   useEffect(() => {
+    fetchData();
+  }, [page]);
+
+  const fetchData = async () => {
     try {
-      const fetchData = async () => {
-        const response = await axios.get(URL);
-        const data = response.data;
-        const images = data.collection.items.map((item: string[]) => item);
-        images.filter((item: any) =>
-          item.data[0].description.toLowerCase().includes(searchWord)
-        );
-        setImages(images);
-      };
-      fetchData();
+      const response = await axios.get(URL);
+      const data = response.data;
+      const images = data.collection.items.map((item: string[]) => item);
+      images.filter((item: any) =>
+        item.data[0].description.toLowerCase().includes(searchWord)
+      );
+      setImages(images);
     } catch (error) {
       console.error("Error fetching data: ", error);
     }
-  }, []);
+  };
 
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [, setSelectedImageIndex] = useState<number | null>(null);
+
+  const handleSearchWord = (event: any) => {
+    setSearchWord(event.target.value);
+  };
+
+  const handleSearchSubmit = () => {
+    fetchData();
+  };
+
+  const handleNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
 
   const toggleFullScreen = (index: number) => {
     const mediaContainer = document.getElementById(index.toString());
@@ -43,7 +54,7 @@ const Hero: React.FC = () => {
 
   if (!images.length) {
     return (
-      <h1 className="lg:text-4xl md:text-2xl text-sm flex justify-center items-center m-4 p-4 md:m-10 md:p-20 indie-flower-regular">
+      <h1 className="lg:text-4xl md:text-2xl text-md flex justify-center items-center m-4 p-4 md:m-10 md:p-20">
         Loading...
       </h1>
     );
@@ -51,6 +62,20 @@ const Hero: React.FC = () => {
 
   return (
     <>
+      <div className="flex justify-center m-2 p-2 w-full">
+        <input
+          type="text"
+          value={searchWord}
+          className=" text-lg mx-4 w-4/6 px-2 bg-stone-950 border-b-2 rounded-md shadow h-10"
+          onChange={handleSearchWord}
+        />
+        <button
+          onClick={handleSearchSubmit}
+          className="text-2xl cursor-pointer hover:color-red "
+        >
+          Search
+        </button>
+      </div>
       <div className="grid w-fit md:grid-cols-3 2xl:grid-cols-4 grid-cols-1 grid-flow-row gap-6 m-4 overflow-hidden">
         {images.map((image: any, index) => (
           <div className="flex flex-col mb-6 overflow-hidden items-center w-full h-96 hover:scale-125 transition-transform duration-500">
@@ -68,9 +93,14 @@ const Hero: React.FC = () => {
           </div>
         ))}
       </div>
+      <button
+        onClick={handleNextPage}
+        className="m-6 p-6 flex justify-center w-full"
+      >
+        Next Page
+      </button>
     </>
   );
-  
 };
 
 export default Hero;
