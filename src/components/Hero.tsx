@@ -5,6 +5,7 @@ const Hero: React.FC = () => {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [searchWord, setSearchWord] = useState("nebula");
+  const [nextPage, setNextPage] = useState(True);
 
   const URL = `https://images-api.nasa.gov/search?q=${searchWord}&media_type=image&page=${page}`;
 
@@ -20,6 +21,8 @@ const Hero: React.FC = () => {
       images.filter((item: any) =>
         item.data[0].description.toLowerCase().includes(searchWord)
       );
+      const pages = data.collection.links[0];
+      setNextPage(pages);
       setImages(images);
     } catch (error) {
       console.error("Error fetching data: ", error);
@@ -38,7 +41,9 @@ const Hero: React.FC = () => {
   };
 
   const handleNextPage = () => {
-    setPage((prevPage) => prevPage + 1);
+    if(nextPage) {
+        setPage((prevPage) => prevPage + 1);
+        };
   };
 
   const toggleFullScreen = (index: number) => {
@@ -95,7 +100,7 @@ const Hero: React.FC = () => {
       </div>
       <button
         onClick={handleNextPage}
-        className="m-6 p-6 flex justify-center w-full"
+        className="m-6 p-6 flex justify-center w-full transition duration-500 hover:scale-125"
       >
         Next Page
       </button>
