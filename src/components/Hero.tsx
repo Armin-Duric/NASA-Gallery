@@ -5,7 +5,7 @@ const Hero: React.FC = () => {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [searchWord, setSearchWord] = useState("nebula");
-  const [nextPage, setNextPage] = useState(True);
+  const [nextPage, setNextPage] = useState(true);
 
   const URL = `https://images-api.nasa.gov/search?q=${searchWord}&media_type=image&page=${page}`;
 
@@ -41,9 +41,11 @@ const Hero: React.FC = () => {
   };
 
   const handleNextPage = () => {
-    if(nextPage) {
-        setPage((prevPage) => prevPage + 1);
-        };
+    if (!nextPage) {
+      setPage(1);
+    } else {
+      setPage((prevPage) => prevPage + 1);
+    }
   };
 
   const toggleFullScreen = (index: number) => {
@@ -76,7 +78,7 @@ const Hero: React.FC = () => {
         />
         <button
           onClick={handleSearchSubmit}
-          className="text-md lg:text-2xl font-medium shadow-2xl border-b-2 cursor-pointer hover:shadow-blue-500 bg-blend-normal duration-500 transition hover:text-red-600"
+          className="text-md lg:text-2xl font-medium shadow-2xl border-b-2 cursor-pointer hover:shadow-blue-500 bg-blend-normal duration-300 transition hover:text-red-600"
         >
           Search
         </button>
@@ -84,7 +86,7 @@ const Hero: React.FC = () => {
       <div className="grid w-fit md:grid-cols-3 2xl:grid-cols-4 grid-cols-1 grid-flow-row gap-6 m-4 overflow-hidden">
         {images.map((image: any, index) => (
           <div className="flex flex-col mb-6 overflow-hidden items-center w-full h-96 hover:scale-125 transition-transform duration-500">
-            <h1 className="p-2 text-center bottom-border-2 overflow-hidden border-b-2 hover:w-full">
+            <h1 className="p-2 text-center bottom-border-2 overflow-hidden border-b-2 hover:w-full platypi">
               {image.data[0].title}
             </h1>
             <img

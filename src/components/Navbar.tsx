@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <div className="w-full flex border-b-4 h-20 justify-between font-semibold box-content sticky top-0 z-50 custom-background">
+      <div className="w-full flex border-b-4 h-20 justify-between font-semibold box-content sticky top-0 z-50 custom-background platypi-bold">
         <div className="m-6 text-xl pl-2 sm:pl-20 xl:text-3xl cursor-pointer tracking-tighter md:tracking-widest hover:text-red-600 duration-500">
           <Link to="/">
             <h1>NASA Image Gallery</h1>

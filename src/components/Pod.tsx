@@ -27,18 +27,17 @@ const Pod: React.FC = () => {
     fetchPodData();
   }, []);
 
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
-    const [isFullScreen, setIsFullScreen] = useState(false);
-  
-    const toggleFullScreen = () => {
-      const mediaContainer:any = document.getElementById('media-container')
-      if (!isFullScreen) {
-        mediaContainer.requestFullscreen();
-      } else {
-        document.exitFullscreen();
-      }
-      setIsFullScreen(!isFullScreen);
-    };
+  const toggleFullScreen = () => {
+    const mediaContainer: any = document.getElementById("media-container");
+    if (!isFullScreen) {
+      mediaContainer.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+    setIsFullScreen(!isFullScreen);
+  };
 
   if (!podData) {
     return (
@@ -50,7 +49,7 @@ const Pod: React.FC = () => {
 
   if (podData.media_type === "video") {
     return (
-      <div className="w-2/2 h-fit flex flex-col justify-center items-center m-4 overflow-hidden">
+      <div className="w-2/2 h-fit flex flex-col justify-center items-center m-4 overflow-hidden platypi">
         <h1 className="m-4 md:text-3xl text-lg text-center font-semibold text-center">
           {podData.title}
         </h1>
@@ -77,7 +76,9 @@ const Pod: React.FC = () => {
         className="h-fit xl:w-4/6 w-5/6 m-4 md:w-4/6 justify-center m-6 rounded-lg drop-shadow-[0_0px_80px_rgba(61,112,123,0.7)]"
         id="media-container"
       />
-      <p className="w-5/6 xl:w-4/6 text-md md:text-xl mb-6">{podData.explanation}</p>
+      <p className="w-5/6 xl:w-4/6 text-md md:text-xl mb-6">
+        {podData.explanation}
+      </p>
     </div>
   );
 };

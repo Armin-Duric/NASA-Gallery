@@ -9,11 +9,18 @@
   width: 100%;
   height: 100%;
 }
-.indie-flower-regular {
-  font-family: "Indie Flower", cursive;
-  font-weight: 400;
+.platypi {
+  font-family: "Play", sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
+
+.platypi-bold {
+  font-family: "Play", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
 body {
   height: 100%;
   background-image: url("../public/assets/images/Wallpaper2.jpg");
