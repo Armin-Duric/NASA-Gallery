@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
 
   return (
     <>
-      <div className="flex justify-center m-2 p-2 w-full">
+      <div className="flex justify-center my-8 p-2 w-full">
         <input
           type="text"
           value={searchWord}
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
             </h1>
             <img
               key={index}
-              src={`https://images-assets.nasa.gov/image/${image.data[0].nasa_id}/${image.data[0].nasa_id}~orig.jpg`}
+              src={`http://images-assets.nasa.gov/image/${image.data[0].nasa_id}/${image.data[0].nasa_id}~orig.jpg`}
               alt="Nasa Space image"
               className="h-full object-contain w-full rounded overflow-hidden duration-500"
               id={`${index}`}
