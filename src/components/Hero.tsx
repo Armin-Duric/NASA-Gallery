@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
             </h1>
             <img
               key={index}
-              src={image.links[0].href}
+              src={`https://images-assets.nasa.gov/image/${image.data[0].nasa_id}/${image.data[0].nasa_id}~orig.jpg`}
               alt="Nasa Space image"
               className="h-full object-contain w-full rounded overflow-hidden duration-500"
               id={`${index}`}
@@ -100,12 +100,14 @@ const Hero: React.FC = () => {
           </div>
         ))}
       </div>
-      <button
-        onClick={handleNextPage}
-        className="m-6 p-6 flex justify-center w-full transition duration-500 hover:scale-125"
-      >
-        Next Page
-      </button>
+      <div className="m-4 p-2 flex justify-center overflow-hidden">
+        <button
+          className="text-xl transition duration-400 hover:scale-125"
+          onClick={handleNextPage}
+        >
+          Next Page
+        </button>
+      </div>
     </>
   );
 };

@@ -6,8 +6,9 @@
   background-color: black;
   color: white;
   height: fit-content;
-  width: 100%;
+  width: auto;
   height: 100%;
+  overflow-x: hidden;
 }
 .platypi {
   font-family: "Play", sans-serif;
@@ -22,15 +23,14 @@
 }
 
 body {
-  height: 100%;
-  background-image: url("../public/assets/images/Wallpaper2.jpg");
+  background-image: url("src/assets/images/Wallpaper2.jpg");
   background-size: contain;
 }
 .transition-slow {
   transition-duration: 0.4s;
 }
 .custom-background {
-  background-image: url("../public/assets/images/Navbar-image3.jpg");
+  background-image: url("/src/assets/images/Navbar-image3.jpg");
   background-size: cover;
 }
 .video-height {

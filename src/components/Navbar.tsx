@@ -10,16 +10,14 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <div className="w-full flex border-b-4 h-20 justify-between font-semibold box-content sticky top-0 z-50 custom-background platypi-bold">
+      <div className="w-full flex border-b-4 h-20 justify-between font-semibold box-content sticky top-0 z-50 custom-background platypi-bold overflow-hidden">
         <div className="m-6 text-xl pl-2 sm:pl-20 xl:text-3xl cursor-pointer tracking-tighter md:tracking-widest hover:text-red-600 duration-500">
           <Link to="/">
             <h1>NASA Image Gallery</h1>
           </Link>
         </div>
 
-        <div className="sm:flex m-6 hidden text-lg xl:text-xl cursor-pointer gap-6 lg:gap-8 tracking-tighter sm:tracking-wide">
-          {/* <SearchBar /> */}
-        </div>
+        <div className="sm:flex m-6 hidden text-lg xl:text-xl cursor-pointer gap-6 lg:gap-8 tracking-tighter sm:tracking-wide"></div>
 
         <div className="m-6 text-lg xl:text-xl bold hidden lg:flex cursor-pointer tracking-tighter sm:tracking-widest hover:scale-125 duration-500 px-4">
           <Link to="/pod">
